@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OLAccountTracker_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblMeetingQueue">
+          <Key>
+            <PropertyRef Name="MeetingQueueId" />
+          </Key>
+          <Property Name="MeetingQueueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sequence" Type="numeric" Precision="4" Scale="1" Nullable="false" />
+          <Property Name="PersonnelId" Type="int" Nullable="false" />
+          <Property Name="DateEntered" Type="datetime" Nullable="false" />
+          <Property Name="ClientId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="MeetingQueueStatusId" Type="int" Nullable="false" />
+          <Property Name="ModifiedStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="MeetingQueueCategoryId" Type="int" Nullable="false" />
+          <Property Name="PercentCompleted" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="CalledDate" Type="datetime" />
+          <Property Name="FinishedDate" Type="datetime" />
+          <Property Name="EstimatedMinutes" Type="int" Nullable="false" />
+          <Property Name="MeetingUrgencyId" Type="int" Nullable="false" />
+          <Property Name="MeetingQueueSubCategoryId" Type="int" />
+          <Property Name="FileIDNo" Type="int" />
+          <Property Name="QueueDeadline" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="PreviousMeetingQueueStatusId" Type="int" />
+          <Property Name="LeIdNo" Type="int" />
+          <Property Name="FileCompId" Type="int" />
+          <Property Name="AssignedTo" Type="int" />
+        </EntityType>
+        <EntityContainer Name="OLAccountTracker_DataModelStoreContainer">
+          <EntitySet Name="tblMeetingQueue" EntityType="Self.tblMeetingQueue" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OLAccountTracker_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblMeetingQueue">
+          <Key>
+            <PropertyRef Name="MeetingQueueId" />
+          </Key>
+          <Property Name="MeetingQueueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sequence" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+          <Property Name="PersonnelId" Type="Int32" Nullable="false" />
+          <Property Name="DateEntered" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MeetingQueueStatusId" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="MeetingQueueCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="PercentCompleted" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="CalledDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishedDate" Type="DateTime" Precision="3" />
+          <Property Name="EstimatedMinutes" Type="Int32" Nullable="false" />
+          <Property Name="MeetingUrgencyId" Type="Int32" Nullable="false" />
+          <Property Name="MeetingQueueSubCategoryId" Type="Int32" />
+          <Property Name="FileIDNo" Type="Int32" />
+          <Property Name="QueueDeadline" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PreviousMeetingQueueStatusId" Type="Int32" />
+          <Property Name="LeIdNo" Type="Int32" />
+          <Property Name="FileCompId" Type="Int32" />
+          <Property Name="AssignedTo" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="OLAccountTracker_DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblMeetingQueues" EntityType="Self.tblMeetingQueue" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OLAccountTracker_DataModelStoreContainer" CdmEntityContainer="OLAccountTracker_DataEntities">
+          <EntitySetMapping Name="tblMeetingQueues">
+            <EntityTypeMapping TypeName="OLAccountTracker_DataModel.tblMeetingQueue">
+              <MappingFragment StoreEntitySet="tblMeetingQueue">
+                <ScalarProperty Name="MeetingQueueId" ColumnName="MeetingQueueId" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="PersonnelId" ColumnName="PersonnelId" />
+                <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MeetingQueueStatusId" ColumnName="MeetingQueueStatusId" />
+                <ScalarProperty Name="ModifiedStamp" ColumnName="ModifiedStamp" />
+                <ScalarProperty Name="MeetingQueueCategoryId" ColumnName="MeetingQueueCategoryId" />
+                <ScalarProperty Name="PercentCompleted" ColumnName="PercentCompleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CalledDate" ColumnName="CalledDate" />
+                <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+                <ScalarProperty Name="EstimatedMinutes" ColumnName="EstimatedMinutes" />
+                <ScalarProperty Name="MeetingUrgencyId" ColumnName="MeetingUrgencyId" />
+                <ScalarProperty Name="MeetingQueueSubCategoryId" ColumnName="MeetingQueueSubCategoryId" />
+                <ScalarProperty Name="FileIDNo" ColumnName="FileIDNo" />
+                <ScalarProperty Name="QueueDeadline" ColumnName="QueueDeadline" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PreviousMeetingQueueStatusId" ColumnName="PreviousMeetingQueueStatusId" />
+                <ScalarProperty Name="LeIdNo" ColumnName="LeIdNo" />
+                <ScalarProperty Name="FileCompId" ColumnName="FileCompId" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
